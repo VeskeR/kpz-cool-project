@@ -12,3 +12,9 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_actionAbout_triggered()
+{
+    aboutDialog = new AboutDialog(this);
+    aboutDialog->show();
+}

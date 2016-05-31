@@ -24,3 +24,6 @@ FORMS    += mainwindow.ui \
 
 DISTFILES += \
     me.jpg
+
+RESOURCES += \
+    aboutimage.qrc
