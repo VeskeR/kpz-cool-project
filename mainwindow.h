@@ -10,6 +10,7 @@
 
 #include "aboutdialog.h"
 #include "createstudentdialog.h"
+#include "updatestudentdialog.h"
 #include "dbmanager.h"
 
 namespace Ui {
@@ -25,6 +26,7 @@ public:
     ~MainWindow();
     AboutDialog *aboutDialog;
     CreateStudentDialog *createStudentDialog;
+    UpdateStudentDialog *updateStudentDialog;
 
 private slots:
     void on_actionAbout_triggered();

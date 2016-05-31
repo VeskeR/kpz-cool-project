@@ -58,7 +58,27 @@ void DbManager::createStudent(Student student)
 
 void DbManager::updateStudent(Student student)
 {
+    QString sQuery = "UPDATE `Students` SET `FirstName`=:firstName,`LastName`=:lastName,`Email`=:email,`Phone`=:phone,`Department`=:department,`Group`=:group,`Year`=:year WHERE `_rowid_`=:id;";
+    QSqlQuery qry;
+    qry.prepare(sQuery);
 
+    qry.bindValue(":id", student.id);
+    qry.bindValue(":firstName", student.firstName);
+    qry.bindValue(":lastName", student.lastName);
+    qry.bindValue(":email", student.email);
+    qry.bindValue(":phone", student.phone);
+    qry.bindValue(":department", student.department);
+    qry.bindValue(":group", student.group);
+    qry.bindValue(":year", student.year);
+
+    if (qry.exec())
+    {
+        qDebug() << "Successfully updated student with id: " << student.id;
+    }
+    else
+    {
+        qDebug() << "Error updating student: " << db.lastError().text();
+    }
 }
 
 void DbManager::deleteStudent(int id)

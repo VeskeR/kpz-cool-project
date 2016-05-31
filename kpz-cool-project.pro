@@ -17,17 +17,20 @@ SOURCES += main.cpp\
     aboutdialog.cpp \
     dbmanager.cpp \
     student.cpp \
-    createstudentdialog.cpp
+    createstudentdialog.cpp \
+    updatestudentdialog.cpp
 
 HEADERS  += mainwindow.h \
     aboutdialog.h \
     dbmanager.h \
     student.h \
-    createstudentdialog.h
+    createstudentdialog.h \
+    updatestudentdialog.h
 
 FORMS    += mainwindow.ui \
     aboutdialog.ui \
-    createstudentdialog.ui
+    createstudentdialog.ui \
+    updatestudentdialog.ui
 
 DISTFILES += \
     me.jpg

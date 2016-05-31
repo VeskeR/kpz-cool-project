@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_D), this, SLOT(on_actionDelete_Student_triggered()));
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_I), this, SLOT(on_actionAbout_triggered()));
 
-//    setCentralWidget(ui->tableView);
+    setCentralWidget(ui->tableView);
 }
 
 MainWindow::~MainWindow()
@@ -52,17 +52,21 @@ void MainWindow::on_actionCreate_Student_triggered()
 void MainWindow::on_actionUpdate_Student_triggered()
 {
     QModelIndex index = ui->tableView->currentIndex();
-    if (index.row() > 0)
+    if (index.row() >= 0)
     {
         Student st = Student::createStudent(model->record(index.row()));
+        updateStudentDialog = new UpdateStudentDialog(this, st);
+        updateStudentDialog->setModal(true);
+        updateStudentDialog->exec();
 
+        model->select();
     }
 }
 
 void MainWindow::on_actionDelete_Student_triggered()
 {
     QModelIndex index = ui->tableView->currentIndex();
-    if (index.row() > 0)
+    if (index.row() >= 0)
     {
         int id = model->record(index.row()).field("ID").value().toInt();
         dbManager->deleteStudent(id);
