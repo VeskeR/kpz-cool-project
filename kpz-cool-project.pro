@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,8 +13,32 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    aboutdialog.cpp \
+    dbmanager.cpp \
+    student.cpp \
+    createstudentdialog.cpp \
+    updatestudentdialog.cpp \
+    server.cpp \
+    selectfilterdialog.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    aboutdialog.h \
+    dbmanager.h \
+    student.h \
+    createstudentdialog.h \
+    updatestudentdialog.h \
+    server.h \
+    selectfilterdialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    aboutdialog.ui \
+    createstudentdialog.ui \
+    updatestudentdialog.ui \
+    selectfilterdialog.ui
+
+DISTFILES += \
+    me.jpg
+
+RESOURCES += \
+    aboutimage.qrc
