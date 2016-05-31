@@ -6,20 +6,59 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>827</width>
+    <height>428</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Cool Project</string>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QToolBox" name="toolBox">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="page">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>803</width>
+         <height>77</height>
+        </rect>
+       </property>
+       <attribute name="label">
+        <string>Page 1</string>
+       </attribute>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>803</width>
+         <height>77</height>
+        </rect>
+       </property>
+       <attribute name="label">
+        <string>Page 2</string>
+       </attribute>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTableView" name="tableView"/>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>827</width>
      <height>22</height>
     </rect>
    </property>
@@ -27,6 +66,9 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionCreate_Student"/>
+    <addaction name="actionUpdate_Student"/>
+    <addaction name="actionDelete_Student"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -44,11 +86,29 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionCreate_Student"/>
+   <addaction name="actionUpdate_Student"/>
+   <addaction name="actionDelete_Student"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="actionCreate_Student">
+   <property name="text">
+    <string>Create Student</string>
+   </property>
+  </action>
+  <action name="actionUpdate_Student">
+   <property name="text">
+    <string>Update Student</string>
+   </property>
+  </action>
+  <action name="actionDelete_Student">
+   <property name="text">
+    <string>Delete Student</string>
    </property>
   </action>
  </widget>
