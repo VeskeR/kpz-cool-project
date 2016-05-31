@@ -18,14 +18,16 @@ SOURCES += main.cpp\
     dbmanager.cpp \
     student.cpp \
     createstudentdialog.cpp \
-    updatestudentdialog.cpp
+    updatestudentdialog.cpp \
+    server.cpp
 
 HEADERS  += mainwindow.h \
     aboutdialog.h \
     dbmanager.h \
     student.h \
     createstudentdialog.h \
-    updatestudentdialog.h
+    updatestudentdialog.h \
+    server.h
 
 FORMS    += mainwindow.ui \
     aboutdialog.ui \

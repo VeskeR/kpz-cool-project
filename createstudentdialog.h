@@ -5,6 +5,7 @@
 
 #include <student.h>
 #include <dbmanager.h>
+#include "server.h"
 
 namespace Ui {
 class CreateStudentDialog;
@@ -15,7 +16,7 @@ class CreateStudentDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit CreateStudentDialog(QWidget *parent = 0);
+    explicit CreateStudentDialog(QWidget *parent = 0, Server *server = 0);
     ~CreateStudentDialog();
 
 private slots:
@@ -25,7 +26,7 @@ private slots:
 
 private:
     Ui::CreateStudentDialog *ui;
-    DbManager *dbManager;
+    Server *server;
 };
 
 #endif // CREATESTUDENTDIALOG_H

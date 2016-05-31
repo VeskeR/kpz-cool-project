@@ -7,16 +7,20 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    DbManager::init();
+    server = new Server();
+    server->connect();
 
-    dbManager = &DbManager::getInstance();
-    dbManager->openConnection();
-
-    db = dbManager->db;
-
-    model = new QSqlTableModel(this);
-    model->setTable("Students");
+    model = &server->getStudents(this);
     model->select();
+
+//    DbManager::init();
+
+//    dbManager = &DbManager::getInstance();
+//    dbManager->openConnection();
+
+//    model = new QSqlTableModel(this);
+//    model->setTable("Students");
+//    model->select();
 
     ui->tableView->setModel(model);
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -42,7 +46,7 @@ void MainWindow::on_actionAbout_triggered()
 
 void MainWindow::on_actionCreate_Student_triggered()
 {
-    createStudentDialog = new CreateStudentDialog(this);
+    createStudentDialog = new CreateStudentDialog(this, server);
     createStudentDialog->setModal(true);
     createStudentDialog->exec();
 
@@ -55,7 +59,7 @@ void MainWindow::on_actionUpdate_Student_triggered()
     if (index.row() >= 0)
     {
         Student st = Student::createStudent(model->record(index.row()));
-        updateStudentDialog = new UpdateStudentDialog(this, st);
+        updateStudentDialog = new UpdateStudentDialog(this, st, server);
         updateStudentDialog->setModal(true);
         updateStudentDialog->exec();
 
@@ -69,7 +73,7 @@ void MainWindow::on_actionDelete_Student_triggered()
     if (index.row() >= 0)
     {
         int id = model->record(index.row()).field("ID").value().toInt();
-        dbManager->deleteStudent(id);
+        server->deleteStudent(id);
         model->select();
         QModelIndex newIndex = model->index(index.row(), index.column());
         ui->tableView->setCurrentIndex(newIndex);

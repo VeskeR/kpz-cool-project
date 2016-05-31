@@ -1,13 +1,14 @@
 #include "updatestudentdialog.h"
 #include "ui_updatestudentdialog.h"
 
-UpdateStudentDialog::UpdateStudentDialog(QWidget *parent, Student st) :
+UpdateStudentDialog::UpdateStudentDialog(QWidget *parent, Student st, Server *server) :
     QDialog(parent),
     ui(new Ui::UpdateStudentDialog)
 {
     ui->setupUi(this);
 
-    dbManager = &DbManager::getInstance();
+    this->server = server;
+
     stId = st.id;
     ui->leFirstName->setText(st.firstName);
     ui->leLastName->setText(st.lastName);
@@ -26,7 +27,7 @@ UpdateStudentDialog::~UpdateStudentDialog()
 void UpdateStudentDialog::on_pbUpdate_clicked()
 {
     Student st(stId, ui->leFirstName->text(), ui->leLastName->text(), ui->leEmail->text(), ui->lePhone->text(), ui->leDepartment->text(), ui->leGroup->text(), ui->cbYear->currentText().toInt());
-    dbManager->updateStudent(st);
+    server->updateStudent(st);
     this->close();
 }
 

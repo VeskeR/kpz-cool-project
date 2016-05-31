@@ -12,6 +12,7 @@
 #include "createstudentdialog.h"
 #include "updatestudentdialog.h"
 #include "dbmanager.h"
+#include "server.h"
 
 namespace Ui {
 class MainWindow;
@@ -39,8 +40,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QSqlDatabase db;
-    DbManager *dbManager;
+    Server *server;
     QSqlTableModel *model;
 };
 
