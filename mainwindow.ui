@@ -36,6 +36,7 @@
     <addaction name="actionCreate_Student"/>
     <addaction name="actionUpdate_Student"/>
     <addaction name="actionDelete_Student"/>
+    <addaction name="actionSelect_Filter"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -56,6 +57,7 @@
    <addaction name="actionCreate_Student"/>
    <addaction name="actionUpdate_Student"/>
    <addaction name="actionDelete_Student"/>
+   <addaction name="actionSelect_Filter"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionAbout">
@@ -76,6 +78,11 @@
   <action name="actionDelete_Student">
    <property name="text">
     <string>Delete Student</string>
+   </property>
+  </action>
+  <action name="actionSelect_Filter">
+   <property name="text">
+    <string>Select Filter</string>
    </property>
   </action>
  </widget>

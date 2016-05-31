@@ -7,10 +7,12 @@
 #include <QDebug>
 #include <QtSql>
 #include <QShortcut>
+#include <vector>
 
 #include "aboutdialog.h"
 #include "createstudentdialog.h"
 #include "updatestudentdialog.h"
+#include "selectfilterdialog.h"
 #include "dbmanager.h"
 #include "server.h"
 
@@ -28,6 +30,7 @@ public:
     AboutDialog *aboutDialog;
     CreateStudentDialog *createStudentDialog;
     UpdateStudentDialog *updateStudentDialog;
+    SelectFilterDialog *selectFilterDialog;
 
 private slots:
     void on_actionAbout_triggered();
@@ -37,6 +40,8 @@ private slots:
     void on_actionUpdate_Student_triggered();
 
     void on_actionDelete_Student_triggered();
+
+    void on_actionSelect_Filter_triggered();
 
 private:
     Ui::MainWindow *ui;

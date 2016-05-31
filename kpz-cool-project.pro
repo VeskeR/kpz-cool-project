@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     student.cpp \
     createstudentdialog.cpp \
     updatestudentdialog.cpp \
-    server.cpp
+    server.cpp \
+    selectfilterdialog.cpp
 
 HEADERS  += mainwindow.h \
     aboutdialog.h \
@@ -27,12 +28,14 @@ HEADERS  += mainwindow.h \
     student.h \
     createstudentdialog.h \
     updatestudentdialog.h \
-    server.h
+    server.h \
+    selectfilterdialog.h
 
 FORMS    += mainwindow.ui \
     aboutdialog.ui \
     createstudentdialog.ui \
-    updatestudentdialog.ui
+    updatestudentdialog.ui \
+    selectfilterdialog.ui
 
 DISTFILES += \
     me.jpg

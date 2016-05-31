@@ -29,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_U), this, SLOT(on_actionUpdate_Student_triggered()));
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_D), this, SLOT(on_actionDelete_Student_triggered()));
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_I), this, SLOT(on_actionAbout_triggered()));
+    new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_F), this, SLOT(on_actionSelect_Filter_triggered()));
 
     setCentralWidget(ui->tableView);
 }
@@ -78,4 +79,26 @@ void MainWindow::on_actionDelete_Student_triggered()
         QModelIndex newIndex = model->index(index.row(), index.column());
         ui->tableView->setCurrentIndex(newIndex);
     }
+}
+
+void MainWindow::on_actionSelect_Filter_triggered()
+{
+    std::vector<QString> *filters = new std::vector<QString>();
+    selectFilterDialog = new SelectFilterDialog(this, filters);
+    selectFilterDialog->setModal(true);
+    selectFilterDialog->exec();
+    QString filter;
+    if (filters->size() > 0)
+    {
+        filter = filters->at(0);
+        if (filters->size() > 1)
+        {
+            for (int i = 1; i < filters->size() - 1; i++)
+            {
+                filter += " AND " + filters->at(i);
+            }
+            filter += " AND " + filters->at(filters->size() - 1);
+        }
+    }
+    model->setFilter(filter);
 }

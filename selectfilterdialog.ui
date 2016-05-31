@@ -1,19 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>UpdateStudentDialog</class>
- <widget class="QDialog" name="UpdateStudentDialog">
+ <class>SelectFilterDialog</class>
+ <widget class="QDialog" name="SelectFilterDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>334</width>
+    <width>384</width>
     <height>323</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Update Student</string>
+   <string>Select Filter</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_9">
+     <item>
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>Id:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="leId">
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_6">
      <item>
@@ -152,8 +176,13 @@
      <item>
       <widget class="QComboBox" name="cbYear">
        <property name="currentText">
-        <string>1</string>
+        <string/>
        </property>
+       <item>
+        <property name="text">
+         <string/>
+        </property>
+       </item>
        <item>
         <property name="text">
          <string>1</string>
@@ -191,9 +220,9 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_8">
      <item>
-      <widget class="QPushButton" name="pbUpdate">
+      <widget class="QPushButton" name="pbApplyFilter">
        <property name="text">
-        <string>Update</string>
+        <string>Apply Filter</string>
        </property>
       </widget>
      </item>
