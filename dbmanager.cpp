@@ -52,7 +52,6 @@ void DbManager::createStudent(Student student)
     }
     else
     {
-        qDebug() << "Trying to create student with next query: " << qry.lastQuery();
         qDebug() << "Error creating new student: " << db.lastError().text();
     }
 }
@@ -62,7 +61,21 @@ void DbManager::updateStudent(Student student)
 
 }
 
-void DbManager::deleteStudent(Student student)
+void DbManager::deleteStudent(int id)
 {
+    QString sQuery = "DELETE FROM `Students` WHERE `_rowid_`=:id;";
+    QSqlQuery qry;
+    qry.prepare(sQuery);
+
+    qry.bindValue(":id", id);
+
+    if (qry.exec())
+    {
+        qDebug() << "Successfully deleted student with id: " << id;
+    }
+    else
+    {
+        qDebug() << "Error deleting student: " << db.lastError().text();
+    }
 
 }

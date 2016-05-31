@@ -2,6 +2,7 @@
 #define STUDENT_H
 
 #include <QtCore>
+#include <QtSql>
 
 class Student
 {
@@ -16,6 +17,7 @@ public:
     QString department;
     QString group;
     int year;
+    static Student createStudent(QSqlRecord record);
 };
 
 #endif // STUDENT_H

@@ -6,6 +6,7 @@
 #include <QMainWindow>
 #include <QDebug>
 #include <QtSql>
+#include <QShortcut>
 
 #include "aboutdialog.h"
 #include "createstudentdialog.h"

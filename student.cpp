@@ -23,3 +23,9 @@ Student::Student(int id, QString firstName, QString lastName, QString email, QSt
     this->group = group;
     this->year = year;
 }
+
+Student Student::createStudent(QSqlRecord record)
+{
+    Student st(record.field("ID").value().toInt(), record.field("FirstName").value().toString(), record.field("LastName").value().toString(), record.field("Email").value().toString(), record.field("Phone").value().toString(), record.field("Department").value().toString(), record.field("Group").value().toString(), record.field("Year").value().toInt());
+    return st;
+}

@@ -19,7 +19,7 @@ public:
     void openConnection();
     void createStudent(Student student);
     void updateStudent(Student student);
-    void deleteStudent(Student student);
+    void deleteStudent(int id);
 private:
     static DbManager *instance;
 };
